@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 
 import com.example.bob.myfragmentapp.R
 
@@ -25,6 +26,9 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class SecondFragment : Fragment(), View.OnClickListener {
+
+
+    var textView: TextView? = null
 
 
     override fun onClick(v: View?) {
@@ -44,6 +48,9 @@ class SecondFragment : Fragment(), View.OnClickListener {
         var result : View? = inflater.inflate(R.layout.fragment_second, container, false)
 
         result?.findViewById<View>(R.id.scd_frg_btn)?.setOnClickListener(this)
+
+        this.textView = result?.findViewById(R.id.txt_view)
+
 
         // Inflate the layout for this fragment
         return result
@@ -78,6 +85,18 @@ class SecondFragment : Fragment(), View.OnClickListener {
     interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         fun onFragmentInteraction()
+    }
+
+
+    fun updateTextView(tag : Int) {
+
+        when (tag) {
+            10 -> this.textView?.setText("good man 1")
+            20 -> this.textView?.setText("yeah 2")
+            30 -> this.textView?.setText("great 3")
+
+            else -> this.textView?.setText("No tag met !")
+        }
     }
 
 }

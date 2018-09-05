@@ -39,6 +39,11 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
         result.findViewById(R.id.fgt_main_btn).setOnClickListener(this);
 
+        result.findViewById(R.id.frg_first_btn).setOnClickListener(this);
+        result.findViewById(R.id.frg_second_btn).setOnClickListener(this);
+        result.findViewById(R.id.frg_third_btn).setOnClickListener(this);
+
+
         // Inflate the layout for this fragment
         return result;
     }

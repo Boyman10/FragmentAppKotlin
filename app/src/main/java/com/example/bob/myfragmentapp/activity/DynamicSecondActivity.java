@@ -10,6 +10,8 @@ public class DynamicSecondActivity extends AppCompatActivity {
 
     SecondFragment scdFrg;
 
+    static final String EXTRA_BUTTON_TAG = "BTN_TAG";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

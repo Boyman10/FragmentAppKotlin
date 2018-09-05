@@ -1,5 +1,6 @@
 package com.example.bob.myfragmentapp.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -59,7 +60,19 @@ public class DynamicFragActivity extends AppCompatActivity implements MainFragme
 
     @Override
     public void onButtonClicked(View view) {
-        Log.d(this.getClass().getSimpleName(), "Clicked received from fragment to dynamic activity...");
+
+        int buttonTag = Integer.parseInt(view.getTag().toString());
+
+        Log.d(this.getClass().getSimpleName(), "Clicked received from fragment to dynamic activity..." + buttonTag);
+
+        if (scdFrg != null && scdFrg.isVisible()) {
+            scdFrg.updateTextView(buttonTag);
+        } else {
+            Intent intent = new Intent(this,DynamicSecondActivity.class);
+            intent.putExtra(DynamicSecondActivity.EXTRA_BUTTON_TAG, buttonTag);
+            startActivity(intent);
+        }
+
     }
 
     @Override

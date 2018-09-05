@@ -25,4 +25,37 @@
         android:layout_gravity="center"
         />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frg_first_btn"
+        android:text="Button 1"
+        android:tag="10"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorAccent"
+        android:layout_gravity="center"
+
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frg_second_btn"
+        android:text="Button 2"
+        android:tag="20"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorAccent"
+        android:layout_gravity="center"
+
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frg_third_btn"
+        android:text="Button 3"
+        android:tag="30"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorAccent"
+        android:layout_gravity="center"
+
+        />
 </LinearLayout>
