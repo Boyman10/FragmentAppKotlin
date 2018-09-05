@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 import com.example.bob.myfragmentapp.R
 
@@ -22,19 +23,28 @@ private const val ARG_PARAM2 = "param2"
  * to handle interaction events.
  *
  */
-class SecondFragment : Fragment() {
+class SecondFragment : Fragment(), View.OnClickListener {
+
+
+    override fun onClick(v: View?) {
+        listener?.onFragmentInteraction()
+    }
+
     private var listener: OnFragmentInteractionListener? = null
+    private var btn: Button? = null
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
+        var result : View? = inflater.inflate(R.layout.fragment_second, container, false)
+
+        result?.findViewById<View>(R.id.scd_frg_btn)?.setOnClickListener(this)
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        return result
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -63,7 +73,7 @@ class SecondFragment : Fragment() {
      */
     interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
+        fun onFragmentInteraction()
     }
 
 }

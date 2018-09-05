@@ -67,7 +67,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         try {
             mCallback = (OnButtonClickedListener) getActivity();
         } catch (ClassCastException e) {
-            throw new ClassCastException(e.toString() + " must implement OnBUttonClickedListener");
+            throw new ClassCastException(e.toString() + " must implement OnButtonClickedListener");
         }
 
     }

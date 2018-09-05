@@ -9,6 +9,7 @@ import com.example.bob.myfragmentapp.R
 import com.example.bob.myfragmentapp.fragment.MainFragment
 
 /**
+ * Lqunching fragments the static way using fragment tag in layout
  * @see https://kotlinlang.org/docs/reference/classes.html
  */
 class MainActivity : AppCompatActivity(), MainFragment.OnButtonClickedListener {

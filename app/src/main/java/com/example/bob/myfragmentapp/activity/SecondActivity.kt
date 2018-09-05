@@ -1,5 +1,6 @@
 package com.example.bob.myfragmentapp.activity
 
+import android.content.Intent
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,9 +10,16 @@ import com.example.bob.myfragmentapp.fragment.SecondFragment
 
 class SecondActivity : AppCompatActivity(), SecondFragment.OnFragmentInteractionListener {
 
-    override fun onFragmentInteraction(uri: Uri) {
+    /**
+     * Starting the dynamic version of the Fragment application
+     */
+    override fun onFragmentInteraction() {
         Log.i(javaClass.simpleName,"Back to our activity from fragment...")
+
+        val myIntent = Intent(this, DynamicFragActivity::class.java)
+        startActivity(myIntent)
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

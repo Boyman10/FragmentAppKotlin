@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SecondActivity"></activity>
+        <activity android:name=".activity.SecondActivity" />
+        <activity android:name=".activity.DynamicFragActivity" />
+        <activity android:name=".activity.DynamicSecondActivity"></activity>
     </application>
 
 </manifest>
