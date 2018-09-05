@@ -2,11 +2,12 @@ package com.example.bob.myfragmentapp.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.bob.myfragmentapp.R;
 import com.example.bob.myfragmentapp.fragment.SecondFragment;
 
-public class DynamicSecondActivity extends AppCompatActivity {
+public class DynamicSecondActivity extends AppCompatActivity implements SecondFragment.OnFragmentInteractionListener {
 
     SecondFragment scdFrg;
 
@@ -50,5 +51,10 @@ public class DynamicSecondActivity extends AppCompatActivity {
                     .add(R.id.frame_layout_detail, scdFrg)
                     .commit();
         }
+    }
+
+    @Override
+    public void onFragmentInteraction() {
+        Log.d(this.getClass().getSimpleName(),"Back to second dynamic activity");
     }
 }
