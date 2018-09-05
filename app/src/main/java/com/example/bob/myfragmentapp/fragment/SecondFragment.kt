@@ -30,6 +30,12 @@ class SecondFragment : Fragment(), View.OnClickListener {
 
     var textView: TextView? = null
 
+    private var listener: OnFragmentInteractionListener? = null
+    private var btn: Button? = null
+
+    // 1 - Declare a buttonTag tracking
+    private var buttonTag: Int = 0
+    private val KEY_BTN_TAG: String = "com.example.bob.myfragmentapp.fragment.SecondFragment.KEY_BTN_TAG"
 
     override fun onClick(v: View?) {
 
@@ -38,9 +44,20 @@ class SecondFragment : Fragment(), View.OnClickListener {
         listener?.onFragmentInteraction()
     }
 
-    private var listener: OnFragmentInteractionListener? = null
-    private var btn: Button? = null
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
+        if (savedInstanceState != null) {
+            val btnTagRestored: Int = savedInstanceState.getInt(KEY_BTN_TAG, 0)
+            this.updateTextView(btnTagRestored)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putInt(KEY_BTN_TAG, this.buttonTag)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -89,6 +106,8 @@ class SecondFragment : Fragment(), View.OnClickListener {
 
 
     fun updateTextView(tag : Int) {
+
+        this.buttonTag = tag
 
         when (tag) {
             10 -> this.textView?.setText("good man 1")
