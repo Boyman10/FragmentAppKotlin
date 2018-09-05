@@ -14,7 +14,7 @@ class SecondActivity : AppCompatActivity(), SecondFragment.OnFragmentInteraction
      * Starting the dynamic version of the Fragment application
      */
     override fun onFragmentInteraction() {
-        Log.i(javaClass.simpleName,"Back to our activity from fragment...")
+        Log.i(javaClass.simpleName,"Back to our activity from fragment... Now launching Dynamic Activity !")
 
         val myIntent = Intent(this, DynamicFragActivity::class.java)
         startActivity(myIntent)

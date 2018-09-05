@@ -4,6 +4,7 @@ package com.example.bob.myfragmentapp.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +56,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+        Log.d(this.getClass().getSimpleName(),"Just clicking the button from main fragment...");
         mCallback.onButtonClicked(v);
+
     }
 
     // ----------------
