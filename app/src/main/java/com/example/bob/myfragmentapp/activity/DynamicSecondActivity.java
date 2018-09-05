@@ -10,7 +10,7 @@ public class DynamicSecondActivity extends AppCompatActivity {
 
     SecondFragment scdFrg;
 
-    static final String EXTRA_BUTTON_TAG = "BTN_TAG";
+    public static final String EXTRA_BUTTON_TAG = "BTN_TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,24 @@ public class DynamicSecondActivity extends AppCompatActivity {
         this.configureAndShowSecondFragment();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // call update method here as we are sure our second fragment is visible
+        this.updateFragmentTextViewWithTag();
+    }
+
+
+    /**
+     * Method used on resumed for mobile devices - receiving tag via intent
+     */
+    private void updateFragmentTextViewWithTag() {
+
+        int buttonTag = getIntent().getIntExtra(EXTRA_BUTTON_TAG, 0);
+
+        scdFrg.updateTextView(buttonTag);
+    }
 
     private void configureAndShowSecondFragment() {
 

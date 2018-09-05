@@ -66,8 +66,12 @@ public class DynamicFragActivity extends AppCompatActivity implements MainFragme
         Log.d(this.getClass().getSimpleName(), "Clicked received from fragment to dynamic activity..." + buttonTag);
 
         if (scdFrg != null && scdFrg.isVisible()) {
+
+            // Case of a tablet - we directly talk to the other fragment
             scdFrg.updateTextView(buttonTag);
         } else {
+
+            // Case mobile phone - intent passing
             Intent intent = new Intent(this,DynamicSecondActivity.class);
             intent.putExtra(DynamicSecondActivity.EXTRA_BUTTON_TAG, buttonTag);
             startActivity(intent);
